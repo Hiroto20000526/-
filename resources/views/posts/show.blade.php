@@ -16,6 +16,9 @@
         <h1 class="title">
             {{ $post->title }}
         </h1>
+        <div class="category">
+            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+        </div>
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
