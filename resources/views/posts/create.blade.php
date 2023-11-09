@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         　作成ベージ
     </x-slot>
@@ -31,13 +25,10 @@
                     @endforeach
                 </select>
             </div>
-            </div>
-            <input type="submit" value="store"/>
+            <input type="submit" value="保存する"/>
         </form>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
     </body>
-    
-    </x-app-layout>
-</html>
+</x-app-layout>

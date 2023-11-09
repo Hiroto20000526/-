@@ -1,26 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <x-app-layout>
+<x-app-layout>
     <x-slot name="header">
         　募集ページ
     </x-slot>
-
-    <body>
-        <h1>Blog Name</h1>
-        <div class='posts'>
+        <h1 class="mx-5 px-5">Blog Name</h1>
+        <div class='posts mx-5'>
             @foreach ($posts as $post)
                 <div class='post'>
+                    
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
+                    
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    
                     <p class='body'>{{ $post->body }}</p>
+                    
+                    <div class='comment'>
+                         @if ($post->comments->count())
+                        <div class="edit"><a href="">コメントをみる</a></div>
+                        @else
+                        <span>コメントはまだありません。</span>
+                        @endif
+                        
+                        <a href='/comments/{{ $post->id }}/create'>
+                            コメントする
+                        </a>
+                    </div>
+                    
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -50,7 +56,4 @@
                 }
             }
         </script>
-    </body>
-    
-    </x-app-layout>
-</html>
+</x-app-layout>
