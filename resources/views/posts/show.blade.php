@@ -25,6 +25,19 @@
                 <p>{{ $post->body }}</p>    
             </div>
         </div>
+        <div>
+            <h1>
+                以下コメント
+            </h1>
+             @foreach ($post->comments as $comment)
+                <h3>
+                    {{$comment->user->name}}
+                </h3>
+                <p>
+                     {{$comment->body}}
+                </p>
+             @endforeach
+        </div>
         <div class="edit">
             <a href="/posts/{{ $post->id }}/edit">edit</a>
         </div>
