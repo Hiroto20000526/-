@@ -16,15 +16,18 @@
                     <p class='body'>{{ $post->body }}</p>
                     
                     <div class='comment'>
-                         @if ($post->comments->count())
-                        <div class="edit"><a href="">コメントをみる</a></div>
-                        @else
-                        <span>コメントはまだありません。</span>
-                        @endif
                         
-                        <a href='/comments/{{ $post->id }}/create'>
-                            コメントする
-                        </a>
+                        @if ($post->comments->count())
+                            <div class="comments_show">
+                                <a href="/posts/{{ $post->id }}">コメントをみる</a>
+                            </div>
+                        @else
+                            <span>コメントはまだありません。</span>
+                        @endif
+                            <div class="comment_create">
+                                <a href='/comments/{{ $post->id }}/create'>コメントする </a>
+                            </div>
+                        
                     </div>
                     
                     <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">

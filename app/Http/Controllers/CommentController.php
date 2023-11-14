@@ -22,4 +22,9 @@ class CommentController extends Controller
         $comment->save();
         return redirect('/posts/' . $comment->post_id);
     }
+    
+    public function show(Comment $comment)
+    {
+        return view('comments/show')->with(['comment' => $comment]);
+    }
 }

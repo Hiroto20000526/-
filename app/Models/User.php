@@ -44,11 +44,16 @@ class User extends Authenticatable
     
     public function posts()
     {
-        return $this->hasMany('App\Models\Post');
+        return $this->hasMany(Post::class);
     }
     
     public function comments()
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
+    }
+    
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
     }
 }
