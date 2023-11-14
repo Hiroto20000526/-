@@ -35,6 +35,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
     Route::post('/comments', 'store')->name('store');
     Route::get('/comments/{post}/create', 'create')->name('create');
+    Route::get('/comments/{comment}/show', 'show')->name('show');
     
 });
 
