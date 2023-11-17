@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use DateTime;
 
-class PostSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,13 +18,14 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts')->insert([
-                'title' => 'こんにちは皆さん',
-                'body' => '自由に書いてみよう！',
-                'user_id' => 1,
+        DB::table('users')->insert([
+                'name' => '管理者',
+                'email' => Str::random(10).'@mail.com',
+                'password' => Hash::make('password'),
+                'region_id' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
-                'category_id' => 3,
-         ]);
+                ]);
+                
     }
 }
