@@ -37,7 +37,9 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
-        
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
         <div class="user_name">
             ログインユーザー：{{ Auth::user()->name }}
         </div>
@@ -50,6 +52,7 @@
                 }
             }
         </script>
+        
     </body>
     
     </x-app-layout>

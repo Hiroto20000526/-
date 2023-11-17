@@ -23,6 +23,10 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => '参加'
             ]);
+            
+        DB::table('categories')->insert([
+            'name' => 'ブログ'
+            ]);
         
     }
 }
